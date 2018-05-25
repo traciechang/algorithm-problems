@@ -30,5 +30,10 @@ def reverse(x)
         x = x[zeros..x.length-1]
     end
     
-    x.to_i
+    if x.to_i > 2147483647 || x.to_i < -2147483648
+        return 0
+    else
+        return x.to_i
+    end
+    
 end
