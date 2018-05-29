@@ -19,17 +19,13 @@
 # The above arrows point to positions where the corresponding bits are different.
 
 def hamming_distance(x, y)
-    x_arr = x.to_s(2).split("")
-    y_arr = y.to_s(2).split("")
+    x_arr = x.to_s(2)
+    y_arr = y.to_s(2)
     distance = 0
+    length = x_arr.length > y_arr.length ? x_arr.length : y_arr.length
     
-    until x_arr.length == 4
-        x_arr.unshift("0")
-    end
-
-    until y_arr.length == 4
-        y_arr.unshift("0")
-    end
+    x_arr = x_arr.rjust(length, '0').split("")
+    y_arr = y_arr.rjust(length, '0').split("")
 
     for i in (0..x_arr.length-1) do
         distance += 1 if x_arr[i] != y_arr[i]
@@ -37,5 +33,3 @@ def hamming_distance(x, y)
     
     distance
 end
-
-puts hamming_distance(1,4)
