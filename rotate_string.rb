@@ -12,6 +12,7 @@
 # Note:
 
 # A and B will have length at most 100.
+require 'pry'
 
 def rotate_string(a, b)
     new_string = ""
@@ -30,3 +31,5 @@ def rotate_string(a, b)
     end
     output
 end
+
+puts rotate_string("", "s")
