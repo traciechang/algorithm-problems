@@ -9,3 +9,25 @@
 # Note:
 # The vowels does not include the letter "y".
 
+def reverse_vowels(s)
+    vowels = %w(a e i o u A E I O U)
+    vowels_in_word = []
+    
+    s.each_char.with_index do |letter, idx|
+        if vowels.include?(letter)
+            vowels_in_word << letter
+        end
+    end
+    
+    vowels_in_word.reverse!
+    counter = 0
+    
+    s.each_char.with_index do |letter, idx|
+        if vowels.include?(letter)
+            s.slice!(idx)
+            s.insert(idx, vowels_in_word[counter])
+            counter += 1
+        end
+    end
+    s
+end
