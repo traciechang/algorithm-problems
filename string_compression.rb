@@ -28,7 +28,6 @@ def convert_to_title(n)
     if q == 0
         return alpha[num]
     else
-        # binding.pry
         return alpha[q] + alpha[num % 26]
     end
 end
