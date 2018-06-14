@@ -14,3 +14,29 @@ def find_pairs(nums, k)
 end
 
 print find_pairs([3,1,4,1,5], 2)
+
+# by i
+
+# def find_pairs(nums, k)
+#     freq_hash = {}
+#     pairs = 0
+  
+#     nums.each_with_index do |current_num, idx|
+#       freq_hash[current_num] ||= 0
+#       freq_hash[current_num] += 1
+#     end
+  
+#     freq_hash.each do |current_num, count|
+#       if k == 0
+#         if count >= 2
+#           pairs += 1
+#         end
+#       else 
+#         if freq_hash[current_num + k]
+#           pairs += 1
+#         end
+#       end
+#     end
+  
+#     pairs
+#   end
