@@ -24,19 +24,3 @@ def compress(chars)
 end
 
 print compress(["a","a","b","b","c","c","c"])
-
-# require "pry"
-# def convert_to_title(n)
-#     alpha = %w(A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
-    
-#     num = n-1
-#     q = num / 26 - 1
-    
-#     if q == 0
-#         return alpha[num]
-#     else
-#         return alpha[q] + alpha[num % 26]
-#     end
-# end
-
-# puts convert_to_title(78)
