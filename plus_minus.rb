@@ -1,6 +1,4 @@
 # require 'pry'
-# require 'bigdecimal'
-# require 'bigdecimal/util'
 
 def plusMinus(arr)
     positives = 0
