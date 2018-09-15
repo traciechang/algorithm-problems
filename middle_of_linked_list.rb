@@ -41,6 +41,9 @@
 #      current
 #  end
 
+
+# ********AA Practice Problem below***************
+
 require 'pry'
 
 def merge_intervals(intervals)
