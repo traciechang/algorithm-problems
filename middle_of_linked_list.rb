@@ -22,21 +22,48 @@
 
 # The number of nodes in the given list will be between 1 and 100.
 
-def middle_node(head)
-    counter = 0
-     current = head
+# def middle_node(head)
+#     counter = 0
+#      current = head
      
-     while current != nil
-         counter +=1
-         current = current.next
-     end
+#      while current != nil
+#          counter +=1
+#          current = current.next
+#      end
      
-     current = head
-     midpoint = (counter / 2) + 1
+#      current = head
+#      midpoint = (counter / 2) + 1
      
-     until midpoint == 1
-         current = current.next
-         midpoint -=1
-     end
-     current
- end
+#      until midpoint == 1
+#          current = current.next
+#          midpoint -=1
+#      end
+#      current
+#  end
+
+require 'pry'
+
+def merge_intervals(intervals)
+    output = []
+
+    intervals.each do |interval|
+        modified = false
+        if output.empty?
+            output << interval
+        else
+            output.each_with_index do |el,idx|
+                if (el[0]..el[1]).include?(interval[0]) || ((el[0]..el[1]).include?(interval[1]))
+                    new_range = (el + interval).uniq.sort
+                    output[idx] = [new_range[0], new_range[-1]]
+                    modified = true
+                    break
+                end
+            end
+            output << interval if !modified
+        end
+    end
+    output
+end
+
+# print merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]])
+print merge_intervals([[1, 4], [4, 5]])
