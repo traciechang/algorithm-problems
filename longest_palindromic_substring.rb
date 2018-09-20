@@ -1,19 +1,30 @@
+require 'pry'
+
 def longest_palindrome(s)
-    hash = {}
+    return "" if s == ""
+    seen = {}
+    palindromes = {}
 
     s.each_char.with_index do |char, idx|
-        idx_count = 0
-        current_palindrome = ""
-        
-        until idx_count > idx
-            temp_str = s[idx_count..idx]
-            current_palindrome = temp_str if is_palindrome?(temp_str) && temp_str.length > current_palindrome.length
-            idx_count +=1
+        if seen[char]
+            # binding.pry
+            if idx - palindromes[idx-1] - 1 == seen[char] || is_palindrome?(s[seen[char]..idx])
+                palindromes[idx] = s[seen[char]..idx].length
+                # palindromes[idx] = palindromes[idx-1] + 1
+                seen[char] = idx
+            else
+                seen[char] = idx
+                palindromes[idx] = 1
+            end
+        else
+            seen[char] = idx
+            palindromes[idx] = 1
         end
-        hash[idx] = hash[idx-1].nil? || current_palindrome.length > hash[idx-1].length ? current_palindrome : hash[idx-1]
     end
-    output = hash[s.length - 1] ? hash[s.length - 1] : ""
-    output
+    # binding.pry
+    pal_length = palindromes.values.max
+    idx_end = palindromes.key(pal_length)
+    s[idx_end-pal_length+1..idx_end]
 end
 
 def is_palindrome?(str)
@@ -31,6 +42,8 @@ end
 # puts longest_palindrome("babad")
 # puts longest_palindrome("cbbd")
 # puts longest_palindrome("racecar")
-puts longest_palindrome("")
-# puts is_palindrome?("racecar")
-# puts is_palindrome?("dog")
+# puts longest_palindrome("")
+# puts longest_palindrome("dog")
+puts longest_palindrome("zatabbamafa")
+# puts longest_palindrome("ccc")
+# puts longest_palindrome("zaabbaaf")
