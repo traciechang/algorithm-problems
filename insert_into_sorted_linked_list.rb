@@ -111,6 +111,20 @@ class LinkedList
         end
         list
     end
+
+    def reverse
+        prev_node = nil
+        curr_node = head
+        nextnode = nil
+
+        until curr_node.nil?
+            nextnode = curr_node.next_node
+            curr_node.next_node = prev_node
+            prev_node = curr_node
+            curr_node = nextnode
+        end
+        @head = prev_node
+    end
 end
 
 def intersection(list1, list2)
@@ -153,6 +167,28 @@ def union(list1, list2)
     new_list
 end
 
+# def reverse_in_groups(list, k)
+#     return Node.new(nil, nil) if list.head.val.nil?
+
+#     counter = 1
+#     curr_node = list.head
+#     curr_list_end = list.head
+
+#     until counter == k || curr_node.nil?
+#         curr_node = curr_node.next_node
+#         counter +=1
+#     end
+#     binding.pry
+#     next_list_start = curr_node.next_node.val
+#     next_list = LinkedList.new(next_list_start)
+#     curr_node.next_node = nil
+
+#     reversed_list = list.reverse
+#     # next_reversed_list = next_list.reverse
+#     next_reversed_list = reverse_in_groups(next_list, k)
+#     curr_list_end.next_node = next_reversed_list.head
+# end
+
 # ll = LinkedList.new(nil)
 # ll.insert(5)
 # ll.insert(2)
@@ -186,16 +222,39 @@ end
 # print ll2.return_list
 
 # testing intersection & union
-ll1 = LinkedList.new(nil)
-ll1.insert(10)
-ll1.insert(4)
-ll1.insert(15)
-ll1.insert(20)
-ll2 = LinkedList.new(nil)
-ll2.insert(8)
-ll2.insert(4)
-ll2.insert(2)
-ll2.insert(10)
+# ll1 = LinkedList.new(nil)
+# ll1.insert(10)
+# ll1.insert(4)
+# ll1.insert(15)
+# ll1.insert(20)
+# ll2 = LinkedList.new(nil)
+# ll2.insert(8)
+# ll2.insert(4)
+# ll2.insert(2)
+# ll2.insert(10)
 # new_ll = intersection(ll1,ll2)
-new_ll = union(ll1, ll2)
-print new_ll.return_list
+# new_ll = union(ll1, ll2)
+# print new_ll.return_list
+
+# testing reverse
+# ll = LinkedList.new(nil)
+# ll.insert(1)
+# ll.insert(2)
+# ll.insert(3)
+# ll.insert(4)
+# ll.insert(5)
+# ll.reverse
+# print ll.return_list
+
+# testing reverse in groups
+# ll = LinkedList.new(nil)
+# ll.insert(1)
+# ll.insert(2)
+# ll.insert(3)
+# ll.insert(4)
+# ll.insert(5)
+# ll.insert(6)
+# ll.insert(7)
+# ll.insert(8)
+# new_list=reverse_in_groups(ll, 3)
+# print new_list.return_list
