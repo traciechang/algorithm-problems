@@ -167,6 +167,27 @@ def union(list1, list2)
     new_list
 end
 
+# You have a linked list and you want to find the kth to last node. Write a function kth_to_last_node that takes an integer k and the head_node of a linked list, and returns the kth to the last node in the list.
+def kth_to_last_node(head_node, k)
+    curr_node = head_node
+    list_length = 0
+
+    until curr_node.nil?
+        list_length +=1
+        curr_node = curr_node.next_node
+    end
+
+    target_node = list_length - k + 1
+    curr_node = head_node
+    counter = 1
+
+    until counter == target_node
+        counter +=1
+        curr_node = curr_node.next_node
+    end
+    curr_node.val
+end
+
 # def reverse_in_groups(list, k)
 #     return Node.new(nil, nil) if list.head.val.nil?
 
@@ -258,3 +279,12 @@ end
 # ll.insert(8)
 # new_list=reverse_in_groups(ll, 3)
 # print new_list.return_list
+
+# testing kth_to_last_node
+ll = LinkedList.new(nil)
+ll.insert(6)
+ll.insert(7)
+ll.insert(5)
+ll.insert(9)
+ll.insert(10)
+print kth_to_last_node(ll.head, 4)
