@@ -27,3 +27,26 @@ def makingAnagrams(s1, s2)
     end
     letters_to_delete
 end
+
+# 10/28 2nd try
+def makeAnagram(a, b)
+    a_hash = {}
+    count = 0
+    
+    a.each_char do |letter|
+        a_hash[letter] = a_hash[letter] ? a_hash[letter] + 1 : 1
+    end
+    
+    b.each_char do |letter|
+        if a_hash[letter] && a_hash[letter] > 0
+            a_hash[letter] -= 1
+        else
+            count += 1
+        end
+    end
+    
+    a_hash.each do |key, val|
+        count += val
+    end
+    count
+end
