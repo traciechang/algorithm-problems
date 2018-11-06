@@ -23,4 +23,20 @@ def fibs_recursive(num)
     arr + [arr[-1] + arr[-2]]
 end
 
-print fibs_recursive(5)
+# print fibs_recursive(5)
+
+
+# hackerrank
+def fibonacci(n)
+    arr = fib(n)
+    arr[-1]
+end
+
+def fib(n)
+    return [0, 1] if n == 1
+    
+    arr = fib(n - 1)
+    arr + [arr[-1] + arr[-2]]
+end
+
+print fibonacci(5)
