@@ -11,19 +11,30 @@
 # Input: 14
 # Returns: False
 
+# def is_perfect_square(num)
+#     unit = [2, 3, 7, 8]
+#     if unit.include?(num.to_s[-1].to_i)
+#         return false
+#     else
+#         (1..num).each do |i|
+#             if i ** 2 == num
+#                 return true
+#                 break
+#             end
+#         end
+#     end
+#     false
+# end
+
+# 2/11/19
 def is_perfect_square(num)
-    unit = [2, 3, 7, 8]
-    if unit.include?(num.to_s[-1].to_i)
-        return false
-    else
-        (1..num).each do |i|
-            if i ** 2 == num
-                return true
-                break
-            end
-        end
+    n = 1
+    
+    while n**2 < num
+        n += 1
     end
-    false
+    
+    n**2 == num ? true : false
 end
 
 puts is_perfect_square(2147483647)
