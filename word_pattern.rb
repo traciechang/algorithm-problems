@@ -23,23 +23,45 @@
 
 require 'pry'
 
+# def word_pattern(pattern, str)
+#     hash = {}
+#     pattern_arr = pattern.split("")
+#     str_arr = str.split(" ")
+    
+#     return false if pattern_arr.length != str_arr.length
+    
+#     (0..pattern_arr.length-1).each do |i|
+#         if !hash[pattern_arr[i]]
+#             # binding.pry
+#             return false if hash.has_value?(str_arr[i])
+#             hash[pattern_arr[i]] = str_arr[i]
+#         elsif hash[pattern_arr[i]] != str_arr[i]
+#             return false
+#         end
+#     end
+#     true
+# end
+
+puts word_pattern("abba", "dog cat cat dog")
+
+# 2/11/19
+
 def word_pattern(pattern, str)
     hash = {}
-    pattern_arr = pattern.split("")
-    str_arr = str.split(" ")
+    words = str.split(" ")
     
-    return false if pattern_arr.length != str_arr.length
+    return false if pattern.length != words.length
     
-    (0..pattern_arr.length-1).each do |i|
-        if !hash[pattern_arr[i]]
-            # binding.pry
-            return false if hash.has_value?(str_arr[i])
-            hash[pattern_arr[i]] = str_arr[i]
-        elsif hash[pattern_arr[i]] != str_arr[i]
-            return false
+    pattern.each_char.with_index do |letter, idx|
+        if hash[letter]
+            return false if hash[letter] != words[idx]
+        else
+            if hash.has_value?(words[idx])
+                return false
+            else
+                hash[letter] = words[idx]
+            end
         end
     end
     true
 end
-
-puts word_pattern("abba", "dog cat cat dog")
