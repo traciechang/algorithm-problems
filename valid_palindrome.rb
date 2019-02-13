@@ -11,7 +11,31 @@
 # Input: "race a car"
 # Output: false
 
+require 'pry'
+
+# def is_palindrome(s)
+#     str = s.gsub(/[^0-9a-z]/i, '').downcase
+#     str == str.reverse
+# end
+
+# 2/13/19
+
 def is_palindrome(s)
-    str = s.gsub(/[^0-9a-z]/i, '').downcase
-    str == str.reverse
+    new_str = ""
+    
+    s.each_char do |char|
+        new_str << char.downcase if char.downcase != char.upcase || char == char.to_i.to_s
+    end
+    
+    front_idx = 0
+    back_idx = new_str.length - 1
+    
+    until front_idx > back_idx
+        return false if new_str[front_idx] != new_str[back_idx]
+        front_idx += 1
+        back_idx -= 1
+    end
+    true
 end
+
+puts is_palindrome("0P")
