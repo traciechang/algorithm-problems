@@ -45,3 +45,31 @@ def is_valid(s)
     end
     arr == []
 end
+
+# 2/13/19
+
+def is_valid(s)
+    brackets = {
+        "(" => ")",
+        "{" => "}",
+        "[" => "]"
+        }
+    
+    target = nil
+    seen = []
+    
+    s.each_char do |char|
+        if brackets[char]
+            target = brackets[char]
+            seen << char
+        else
+            if char != target
+                return false
+            else
+                seen.delete_at(-1)
+                target = brackets[seen[-1]]
+            end
+        end
+    end
+    seen.empty? ? true : false
+end
