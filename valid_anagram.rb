@@ -41,3 +41,23 @@ def is_anagram(s, t)
     end
     true
 end
+
+# 2/14/19
+
+def is_anagram(s, t)
+    return false if s.length != t.length
+    hash = {}
+    
+    s.each_char do |char|
+        hash[char] = hash[char] ? hash[char] + 1 : 1 
+    end
+    
+    t.each_char do |char|
+        hash[char] -= 1 if hash[char]
+    end
+    
+    hash.each do |key, val|
+        return false if val != 0
+    end
+    true
+end
