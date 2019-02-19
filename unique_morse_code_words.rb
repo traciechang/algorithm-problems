@@ -37,3 +37,20 @@ def unique_morse_representations(words)
     
     transformations.length
 end
+
+# 2/19/19
+def unique_morse_representations(words)
+    alphabet = ("a".."z").to_a
+    code = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+    transformations = []
+    
+    words.each do |word|
+        temp_code = ""
+        word.each_char do |char|
+            idx = alphabet.find_index(char)
+            temp_code << code[idx]
+        end
+        transformations << temp_code if !transformations.include?(temp_code)
+    end
+    transformations.length
+end
