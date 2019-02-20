@@ -23,4 +23,14 @@ def two_sum(numbers, target)
     end
 end
 
+# 2/20/19
+
+def two_sum(numbers, target)
+    numbers.each_with_index do |n, idx|
+        (idx+1..numbers.length-1).each do |i|
+            return [idx+1, i+1] if n + numbers[i] == target
+        end
+    end
+end
+
 puts two_sum([2,3,4], 6)

@@ -22,7 +22,11 @@
 # 1 is typically treated as an ugly number.
 # Input is within the 32-bit signed integer range: [−231,  231 − 1].
 
-def is_ugly(num)
-    (2..5).each { |i| num /= i while num % i == 0 } if num > 0
-    num == 1
-end
+require 'pry'
+
+# def is_ugly(num)
+#     (2..5).each { |i| num /= i while num % i == 0 } if num > 0
+#     num == 1
+# end
+
+puts is_ugly(14)
