@@ -41,3 +41,27 @@ def uncommon_from_sentences(a, b)
     end
     output
 end
+
+# 2/20/19
+
+def uncommon_from_sentences(a, b)
+    words = {}
+    output = []
+    
+    sentence_a = a.split(" ")
+    sentence_b = b.split(" ")
+    
+    sentence_a.each do |word|
+        words[word] = words[word] ? words[word] + 1 : 1
+    end
+    
+    sentence_b.each do |word|
+        words[word] = words[word] ? words[word] + 1 : 1
+    end
+    
+    words.each do |key, val|
+        output << key if val == 1
+    end
+    
+    output
+end
