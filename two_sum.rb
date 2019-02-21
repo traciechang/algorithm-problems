@@ -17,3 +17,13 @@ def two_sum(nums, target)
         hash[target - num] = idx
     end
  end
+
+#  2/21/19
+
+def two_sum(nums, target)
+    nums.each_with_index do |num, idx|
+        (idx+1..nums.length-1).each do |i|
+            return [idx, i] if num + nums[i] == target
+        end
+    end
+end
