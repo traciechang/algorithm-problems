@@ -42,3 +42,29 @@ def third_max(nums)
     
     third ? third : first
 end
+
+# 2/22/19
+
+def third_max(nums)
+    first = nil
+    sec = nil
+    third = nil
+    
+    nums.each do |num|
+        if first.nil? ||num >= first
+            next if num == first
+            third = sec
+            sec = first
+            first = num
+        elsif sec.nil? || num >= sec
+            next if num == sec
+            third = sec
+            sec = num
+        elsif third.nil? || num >= third
+            next if num == third
+            third = num
+        end
+    end
+    
+    third || first
+end
