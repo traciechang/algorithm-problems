@@ -50,3 +50,28 @@ def subdomain_visits(cpdomains)
     
     output
 end
+
+# 2/25/19
+
+def subdomain_visits(cpdomains)
+    hash = {}
+    output = []
+    
+    cpdomains.each do |domain|
+        a = domain.split(" ")
+        num = a[0].to_i
+        word = a[1]
+        start_idx = 0
+        word.each_char.with_index do |char, idx|
+            if char == "." || idx == word.length - 1
+                hash[word[start_idx..-1]] = hash[word[start_idx..-1]] ? hash[word[start_idx..-1]] + num : num
+                start_idx = idx + 1
+            end
+        end
+    end
+    
+    hash.each do |key, val|
+        output << val.to_s + " " + key
+    end
+    output
+end
