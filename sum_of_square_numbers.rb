@@ -10,15 +10,15 @@
 
 require 'pry'
 
-def judge_square_sum(c)
-    return true if c == 0
-    last = c == 1 ? 1 : c-1
-    (1..last).each do |n|
-        n_squared = n**2
-        break if n_squared > c
-        return true if Math.sqrt(c - n_squared) % 1 == 0
-    end
-    false
-end
+# def judge_square_sum(c)
+#     return true if c == 0
+#     last = c == 1 ? 1 : c-1
+#     (1..last).each do |n|
+#         n_squared = n**2
+#         break if n_squared > c
+#         return true if Math.sqrt(c - n_squared) % 1 == 0
+#     end
+#     false
+# end
 
-puts judge_square_sum(3)
+puts judge_square_sum(1)
