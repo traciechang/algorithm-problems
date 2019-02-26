@@ -34,3 +34,24 @@ def check_record(s)
     end
     true
 end
+
+# 2/26/19
+
+def check_record(s)
+    absences = 0
+    cont_lates = 0
+    
+    s.each_char do |char|
+        if char == "A"
+            absences += 1
+            cont_lates = 0
+            return false if absences > 1
+        elsif char == "L"
+            cont_lates += 1
+            return false if cont_lates > 2
+        else
+            cont_lates = 0
+        end
+    end
+    true
+end
