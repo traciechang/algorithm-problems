@@ -26,3 +26,17 @@ def single_number(nums)
     
     hash.key(1)
 end
+
+# 2/28/19
+
+def single_number(nums)
+    hash = {}
+    
+    nums.each do |num|
+        hash[num] = hash[num] ? hash[num] + 1 : 1
+    end
+    
+    hash.each do |key, val|
+        return key if val == 1
+    end
+end
