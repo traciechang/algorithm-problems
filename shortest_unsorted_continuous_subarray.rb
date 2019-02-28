@@ -35,3 +35,23 @@ def find_unsorted_subarray(nums)
         end_idx - start_idx + 1
     end
 end
+
+# 2/28/19
+
+def find_unsorted_subarray(nums)
+    sorted_arr = nums.sort
+    start_idx = nil
+    final_idx = nil
+    
+    nums.each_with_index do |num, idx|
+        if num != sorted_arr[idx]
+            if start_idx.nil?
+                start_idx = idx
+            else
+                final_idx = idx
+            end
+        end
+    end
+    return 0 if start_idx.nil?
+    final_idx - start_idx + 1
+end
