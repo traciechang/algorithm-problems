@@ -30,3 +30,24 @@ def find_error_nums(nums)
     end
     [output1, output2]
 end
+
+# 3/4/19
+def find_error_nums(nums)
+    hash = {}
+    i = 1
+    output = Array.new(2, nil)
+    
+    nums.each do |num|
+        hash[num] = hash[num] ? hash[num] + 1 : 1
+    end
+    
+    while i <= nums.length
+        if hash[i].nil?
+            output[1] = i
+        elsif hash[i] > 1
+            output[0] = i
+        end
+        i +=1
+    end
+    output
+end
