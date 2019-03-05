@@ -34,3 +34,12 @@ def search_insert(nums, target)
     end
     output
 end
+
+# 3/5/19
+
+def search_insert(nums, target)
+    nums.each_with_index do |num, idx|
+        return idx if num == target || num > target
+    end
+    nums.length
+end
