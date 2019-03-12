@@ -15,3 +15,15 @@ def reverse_words(s)
     
     output.join(" ")
 end
+
+# 3/12/19
+
+def reverse_words(s)
+    words = s.split(" ")
+    reversed_arr = []
+    
+    words.each do |word|
+        reversed_arr << word.reverse
+    end
+    reversed_arr.join(" ")
+end
