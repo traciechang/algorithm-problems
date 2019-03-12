@@ -20,8 +20,29 @@
 # Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem.
 # Could you do it in-place with O(1) extra space?
 
+# def rotate(nums, k)
+#     k.times do
+#         nums.unshift(nums.pop)
+#     end
+# end
+
+# 3/7/19
+
+require 'pry'
+
 def rotate(nums, k)
-    k.times do
-        nums.unshift(nums.pop)
+    counter = 0
+    current_arr = nums
+    
+    until counter == k
+        temp_arr = []
+        temp_arr << current_arr.pop
+        temp_arr += current_arr
+        current_arr = temp_arr
+        # binding.pry
+        counter += 1
     end
+    current_arr
 end
+
+print rotate([1,2,3,4,5,6,7], 3)
