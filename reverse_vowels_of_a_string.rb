@@ -31,3 +31,21 @@ def reverse_vowels(s)
     end
     s
 end
+
+# 3/13/19
+
+def reverse_vowels(s)
+    vowels = []
+    def is_vowel(char)
+        char == "a" || char == "e" || char == "i" || char == "o" || char == "u" || char == "A" || char == "E" || char == "I" || char == "O" || char == "U"
+    end
+    
+    s.each_char do |char|
+        vowels << char if is_vowel(char)
+    end
+    
+    s.each_char.with_index do |char, idx|
+        s[idx] = vowels.pop if is_vowel(char)
+    end
+    s
+end
