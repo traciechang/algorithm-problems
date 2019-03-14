@@ -37,3 +37,24 @@ def reverse(x)
     end
     
 end
+
+# 3/14/19
+
+def reverse(x)
+    new_num = ""
+    str_num = x.to_s
+    
+    if x < 0
+        new_num << "-"
+        str_num[0] = ""
+    end
+    
+    new_num << str_num.reverse
+    output = new_num.to_i
+    
+    if output > 2147483647 || output < -2147483648
+        return 0
+    else
+        return output
+    end
+end
