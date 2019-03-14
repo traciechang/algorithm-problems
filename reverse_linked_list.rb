@@ -20,3 +20,18 @@ def reverse_list(head)
     end
     prev
 end
+
+# 3/14/19
+
+def reverse_list(head)
+    current_node = head
+    prev_node = nil
+    
+    until current_node.nil?
+        next_node = current_node.next
+        current_node.next = prev_node
+        prev_node = current_node
+        current_node = next_node
+    end
+    prev_node
+end
