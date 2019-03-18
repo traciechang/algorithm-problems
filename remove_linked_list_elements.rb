@@ -35,3 +35,26 @@ def remove_elements(head, val)
     head
 
 end
+
+# 3/18/19
+
+def remove_elements(head, val)
+    curr_node = head
+    prev_node = nil
+    
+    until curr_node.nil?
+        if prev_node.nil? && curr_node.val == val
+            temp_node = curr_node
+            curr_node = curr_node.next
+            head = curr_node
+            temp_node.next = nil
+        elsif curr_node.val == val
+            prev_node.next = curr_node.next
+            curr_node = prev_node.next
+        else
+            prev_node = curr_node
+            curr_node = curr_node.next
+        end
+    end
+    head
+end
