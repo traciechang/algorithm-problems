@@ -37,9 +37,16 @@
 #     print(nums[i]);
 # }
 
-def remove_element(nums, val)
-    nums.delete(val)
-    nums.length
-end
+# def remove_element(nums, val)
+#     nums.delete(val)
+#     nums.length
+# end
 
-puts remove_element([3,2,2,3], 3)
+# 3/18/19
+
+def remove_element(nums, val)
+        nums.delete(val)
+        nums.length
+    end
+
+    print remove_element([3,2,2,3], 3)
