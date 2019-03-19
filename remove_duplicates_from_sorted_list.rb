@@ -38,3 +38,22 @@ def delete_duplicates(head)
     end
     head
 end
+
+# 3/19/19
+
+def delete_duplicates(head)
+    seen = {}
+    current_node = head
+    prev_node = nil
+    
+    while current_node != nil
+        if seen[current_node.val]
+            prev_node.next = current_node.next
+        else
+            seen[current_node.val] = true
+            prev_node = current_node
+        end
+        current_node = current_node.next
+    end
+    head
+end
