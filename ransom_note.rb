@@ -35,3 +35,23 @@ def can_construct(ransom_note, magazine)
     
     true
 end
+
+# 3/20/19
+
+def can_construct(ransom_note, magazine)
+    note_hash = {}
+    magazine_hash = {}
+    
+    ransom_note.each_char do |char|
+        note_hash[char] = note_hash[char] ? note_hash[char] + 1 : 1
+    end
+    
+    magazine.each_char do |char|
+        magazine_hash[char] = magazine_hash[char] ? magazine_hash[char] + 1 : 1
+    end
+    
+    note_hash.each do |key, val|
+        return false if magazine_hash[key].nil? || magazine_hash[key] < val
+    end
+    true
+end
