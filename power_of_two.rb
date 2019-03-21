@@ -24,3 +24,15 @@ def is_power_of_two(n)
     end
     true
 end
+
+# 3/21/19
+
+def is_power_of_two(n)
+    p = 0
+    
+    while 2**p <= n
+        return true if 2**p == n
+        p += 1
+    end
+    false
+end
