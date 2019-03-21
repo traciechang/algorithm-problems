@@ -26,3 +26,14 @@ def is_power_of_three(n)
     end
     n == 1
 end
+
+# 3/21/19
+
+def is_power_of_three(n)
+    i = 0
+    while 3**i <= n
+        return true if 3**i == n
+        i += 1
+    end
+    false
+end
