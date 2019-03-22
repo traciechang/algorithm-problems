@@ -46,3 +46,31 @@ def large_group_positions(s)
     output << [start_idx, s.length-1] if count >= 3
     output
 end
+
+# 3/22/19
+
+ef large_group_positions(s)
+    output = []
+    current_char = ""
+    count = 0
+    start_idx = nil
+    last_idx = nil
+    
+    s.each_char.with_index do |char, idx|
+        if current_char != char
+            if count >= 3
+                last_idx = idx - 1
+                output << [start_idx, last_idx]
+            end
+            
+            start_idx = idx
+            last_idx = nil
+            current_char = char
+            count = 1
+        else
+            count += 1
+        end
+    end
+    output << [start_idx, s.length-1] if count >= 3
+    output
+end
