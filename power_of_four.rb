@@ -10,3 +10,19 @@ def is_power_of_four(num)
     num /= 4 while num % 4 == 0
     num == 1
 end
+
+# 3/22/19
+
+def is_power_of_four(num)
+    return false if num == 0
+    n = num
+    
+    until n == 1
+        if n % 4 == 0
+            n = n / 4
+        else
+            return false
+        end
+    end
+    true
+end
