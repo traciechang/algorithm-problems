@@ -25,3 +25,17 @@ end
 # puts check_perfect_number(28)
 # puts check_perfect_number(24036583)
 puts check_perfect_number(20996011)
+
+# 3/25/19
+
+def check_perfect_number(num)
+    sum = 1
+    divisor = 2
+    midpoint = num / 2
+    
+    while divisor <= midpoint
+        sum += divisor if num % divisor == 0
+        divisor += 1
+    end
+    sum == num
+end
