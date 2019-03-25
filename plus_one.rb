@@ -20,3 +20,21 @@ def plus_one(digits)
         n.to_i
     end
 end
+
+# 3/25/19
+
+def plus_one(digits)
+    num_str = ""
+    output = []
+    
+    digits.each do |digit|
+        num_str << digit.to_s
+    end
+    
+    new_digits_str = (num_str.to_i + 1).to_s
+    
+    new_digits_str.each_char do |char|
+        output << char.to_i
+    end
+    output
+end
