@@ -16,8 +16,6 @@
 
 # 3/28/19
 
-require 'pry'
-
 def generate(num_rows)
     return [[1]] if num_rows == 1
     pastel = generate(num_rows - 1)
@@ -33,7 +31,6 @@ def generate(num_rows)
             arr << num
             prev_num = num
         elsif idx == prev_row.length - 1
-            # binding.pry
             arr << prev_num + num
             arr << num
         else
