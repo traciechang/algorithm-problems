@@ -31,3 +31,11 @@ def peak_index_in_mountain_array(a)
     end
     peak_idx
 end
+
+# 3/28/19
+
+def peak_index_in_mountain_array(a)
+    a.each_with_index do |num, idx|
+        return idx if num > a[idx-1] && num > a[idx+1] unless idx == 0 || idx == a.length-1
+    end
+end
