@@ -13,7 +13,7 @@ def isValid(s)
     letters.each do |key, val|
         occurences[val] = occurences[val] ? occurences[val] + 1 : 1
     end
-    # binding.pry
+
     if occurences.length > 2
         return "NO"
     elsif occurences.length <= 1
