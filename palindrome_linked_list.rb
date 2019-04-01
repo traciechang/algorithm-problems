@@ -54,3 +54,16 @@ def is_palindrome(head)
     end
     true
 end
+
+# 4/1/19
+
+def is_palindrome(head)
+    current_node = head
+    output = []
+    
+    until current_node.nil?
+        output << current_node.val
+        current_node = current_node.next
+    end
+    output == output.reverse
+end
