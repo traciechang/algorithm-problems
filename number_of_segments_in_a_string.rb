@@ -10,3 +10,9 @@
 def count_segments(s)
     s.split(" ").length
 end
+
+# 4/2/19
+
+def count_segments(s)
+    s.split(" ").length
+end
