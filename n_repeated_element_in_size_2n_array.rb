@@ -4,8 +4,6 @@
 
 # Return the element repeated N times.
 
- 
-
 # Example 1:
 
 # Input: [1,2,3,3]
@@ -18,6 +16,8 @@
 
 # Input: [5,1,5,2,5,3,5,4]
 # Output: 5
+
+# 4/4/19
 
 def repeated_n_times(a)
     hash = {}
