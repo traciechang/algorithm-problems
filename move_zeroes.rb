@@ -15,3 +15,14 @@ def move_zeroes(nums)
     zeros.times { nums << 0 }
     nums
 end
+
+# 4/5/19
+
+def move_zeroes(nums)
+    total_zeros = nums.count(0)
+    nums.delete(0)
+    total_zeros.times do
+        nums << 0
+    end
+    nums
+end
