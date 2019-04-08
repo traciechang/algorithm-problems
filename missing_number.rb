@@ -24,3 +24,16 @@ def missing_number(nums)
 end
 
 puts missing_number([3,0,1])
+
+# 4/8/19
+
+def missing_number(nums)
+    max = nums.length
+    min = 0
+    i = min
+    
+    while i <= max
+        return i if !nums.include?(i)
+        i += 1
+    end
+end
