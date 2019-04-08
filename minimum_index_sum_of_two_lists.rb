@@ -48,3 +48,24 @@ def find_restaurant(list1, list2)
 end
 
 # 4/8/19
+
+def find_restaurant(list1, list2)
+    hash1 = {}
+    hash2 = {}
+    rest = []
+    
+    list1.each_with_index do |el, idx|
+        hash1[el] = idx
+    end
+    
+    list2.each_with_index do |el, idx|
+        hash2[el] = hash1[el] + idx if hash1[el]
+    end
+    
+    min_idx_sum = hash2.values.min
+    
+    hash2.each do |key, val|
+        rest << key if val == min_idx_sum
+    end
+    rest
+end
