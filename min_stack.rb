@@ -17,3 +17,62 @@
 # minStack.getMin();   --> Returns -2.
 
 # 4/25/19
+
+class MinStack
+
+    =begin
+        initialize your data structure here.
+    =end
+        def initialize()
+            @arr = []
+            @min = nil
+        end
+    
+    
+    =begin
+        :type x: Integer
+        :rtype: Void
+    =end
+        def push(x)
+            @arr.push(x)
+            if @min.nil?
+                @min = x
+            elsif x < @min
+                @min = x
+            end
+        end
+    
+    
+    =begin
+        :rtype: Void
+    =end
+        def pop()
+            p = @arr.pop
+            @min = @arr.min if @min = p
+        end
+    
+    
+    =begin
+        :rtype: Integer
+    =end
+        def top()
+            @arr[-1]
+        end
+    
+    
+    =begin
+        :rtype: Integer
+    =end
+        def get_min()
+            @min
+        end
+    
+    
+    end
+    
+    # Your MinStack object will be instantiated and called as such:
+    # obj = MinStack.new()
+    # obj.push(x)
+    # obj.pop()
+    # param_3 = obj.top()
+    # param_4 = obj.get_min()
