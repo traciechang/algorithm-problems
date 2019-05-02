@@ -43,6 +43,26 @@
 
 # 4/25/19
 
+def middle_node(head)
+    counter = 0
+     
+     current_node = head
+     # previous_node = nil
+     
+     while !current_node.nil?
+         counter += 1
+         current_node = current_node.next
+     end
+     
+     middle = (counter / 2) + 1
+     i = 1
+     current_node = head
+     while i < middle
+         current_node = current_node.next
+         i += 1
+     end
+     current_node
+ end
 
 # ********AA Practice Problem below***************
 
