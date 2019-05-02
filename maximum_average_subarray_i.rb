@@ -10,11 +10,24 @@
 
 require 'pry'
 
+# def find_max_average(nums, k)
+#     max_avg = nil
+#     nums.each_with_index do |num, idx|
+#         break if idx == (nums.length - k + 1)
+#         avg = (nums[idx..idx+k-1].inject(:+)) / k.to_f
+#         max_avg = avg if max_avg.nil? || avg > max_avg
+#     end
+#     max_avg
+# end
+
+# 5/2/19
+
 def find_max_average(nums, k)
     max_avg = nil
-    nums.each_with_index do |num, idx|
-        break if idx == (nums.length - k + 1)
-        avg = (nums[idx..idx+k-1].inject(:+)) / k.to_f
+    
+    nums.each_with_index do |n, idx|
+        break if idx == nums.length - k + 1
+        avg = nums[idx..idx+(k-1)].inject(:+) / k.to_f
         max_avg = avg if max_avg.nil? || avg > max_avg
     end
     max_avg
