@@ -26,3 +26,21 @@ def find_max_consecutive_ones(nums)
     max_ones = count if count > max_ones
     max_ones
 end
+
+def find_max_consecutive_ones(nums)
+    max_ones = 0
+    current_count = 0
+    
+    nums.each do |n|
+        if n == 1
+            current_count += 1
+        else
+            if current_count > max_ones
+                max_ones = current_count
+            end
+            current_count = 0
+        end
+    end
+    max_ones = current_count if current_count > max_ones
+    max_ones
+end
