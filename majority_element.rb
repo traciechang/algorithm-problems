@@ -28,6 +28,8 @@ def majority_element(nums)
     end
 end
 
+# 5/6/19
+
 def majority_element(nums)
     hash = {}
     majority_el = nil
