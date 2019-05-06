@@ -27,6 +27,8 @@ def find_max_consecutive_ones(nums)
     max_ones
 end
 
+# 5/6/19
+
 def find_max_consecutive_ones(nums)
     max_ones = 0
     current_count = 0
