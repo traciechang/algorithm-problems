@@ -27,3 +27,21 @@ def majority_element(nums)
         return key if val > majority_size
     end
 end
+
+def majority_element(nums)
+    hash = {}
+    majority_el = nil
+    
+    nums.each do |num|
+        hash[num] = hash[num] ? hash[num] + 1 : 1
+    end
+    
+    hash.each do |key, val|
+        if majority_el.nil?
+            majority_el = key
+        else
+            majority_el = key if val > hash[majority_el]
+        end
+    end
+    majority_el
+end
