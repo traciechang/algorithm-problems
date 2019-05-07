@@ -57,5 +57,6 @@ def longest_common_prefix(strs)
         idx += 1
         current_str = strs[0][idx]
     end
+    
     output
 end
