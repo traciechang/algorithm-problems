@@ -40,3 +40,20 @@ def longest_common_prefix(strs)
     
     output
 end
+
+def longest_common_prefix(strs)
+    return "" if strs.empty?
+    idx = 0
+    current_str = strs[0][0]
+    output = ""
+    
+    while idx < strs[0].length
+        strs.each do |str|
+            return output if str[idx] != current_str    
+        end
+        output << current_str
+        idx += 1
+        current_str = strs[0][idx]
+    end
+    output
+end
