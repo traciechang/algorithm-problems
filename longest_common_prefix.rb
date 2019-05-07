@@ -41,6 +41,8 @@ def longest_common_prefix(strs)
     output
 end
 
+# 5/7/19
+
 def longest_common_prefix(strs)
     return "" if strs.empty?
     idx = 0
