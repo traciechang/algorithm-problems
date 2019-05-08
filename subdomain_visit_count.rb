@@ -75,3 +75,27 @@ def subdomain_visits(cpdomains)
     end
     output
 end
+
+# 5/8/19
+
+def subdomain_visits(cpdomains)
+    hash = {}
+    output = []
+    
+    cpdomains.each do |domain|
+        pair = domain.split(" ")
+        visits = pair[0].to_i
+        domain = pair[-1]
+        
+        sub_domains = domain.split(".")
+        sub_domains.each_with_index do |sub, idx|
+            curr_domain = sub_domains[idx..sub_domains.length-1].join(".")
+            hash[curr_domain] = hash[curr_domain] ? hash[curr_domain] + visits : visits
+        end
+    end
+    
+    hash.each do |key, val|
+        output << "#{val.to_s} #{key}"
+    end
+    output
+end
