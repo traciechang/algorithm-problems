@@ -21,3 +21,22 @@ def find_lu_slength(a, b)
     return -1 if a == b
     [a.length, b.length].max
 end
+
+# 5/14/19
+
+def find_lu_slength(a, b)
+    if a.length > b.length
+        return a.length
+    elsif b.length > a.length
+        return b.length
+    else
+        idx = a.length - 1
+        
+        while idx >= 0
+            curr_sub = a[0..idx]
+            return curr_sub.length if !b.include?(curr_sub)
+            idx -= 1
+        end
+    end
+    -1
+end
