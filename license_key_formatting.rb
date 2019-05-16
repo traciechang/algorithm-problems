@@ -22,21 +22,45 @@
 # String S consists only of alphanumerical characters (a-z and/or A-Z and/or 0-9) and dashes(-).
 # String S is non-empty.
 
-def license_key_formatting(s, k)
-    s = s.delete("-").upcase
-    remainder = s.length % k
-    arr = []
+require 'pry'
+
+# def license_key_formatting(s, k)
+#     s = s.delete("-").upcase
+#     remainder = s.length % k
+#     arr = []
     
-    if remainder == 0
-        (0..s.length-1).step(k).each do |i|
-            arr << s[i, k]
-        end
-    else
-        arr << s[0, remainder]
-        (remainder..s.length-1).step(k).each do |i|
-            arr << s[i, k]
-        end
+#     if remainder == 0
+#         (0..s.length-1).step(k).each do |i|
+#             arr << s[i, k]
+#         end
+#     else
+#         arr << s[0, remainder]
+#         (remainder..s.length-1).step(k).each do |i|
+#             arr << s[i, k]
+#         end
+#     end
+    
+#     arr.join("-")
+# end
+
+# 5/16/19
+
+def license_key_formatting(s, k)
+    output = ""
+    str = s.split("-").join("")
+    idx = 0
+    remainder = str.length % k
+    
+    if remainder != 0
+        output << str[idx...remainder] + "-"
+        idx = remainder
     end
     
-    arr.join("-")
+    while idx < str.length
+        output << str[idx...idx + k] + "-"
+        idx += k
+    end
+    output[0...output.length-1].upcase
 end
+
+puts license_key_formatting("5F3Z-2e-9-w", 4)
