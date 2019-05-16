@@ -93,3 +93,34 @@ def lemonade_change(bills)
     end
     true
 end
+
+# 5/16/19
+
+def lemonade_change(bills)
+    hash = {}
+    
+    bills.each do |bill|
+        hash[bill] = hash[bill] ? hash[bill] + 1 : 1
+        change = bill - 5
+        
+        if change != 0
+            if change == 5
+                if hash[5] && hash[5] > 0
+                    hash[5] -= 1
+                else
+                    return false
+                end
+            else
+                if hash[5] && hash[5] > 0 && hash[10] && hash[10] > 0
+                    hash[5] -= 1
+                    hash[10] -= 1
+                elsif hash[5] && hash[5] >= 3
+                    hash[5] -= 3
+                else
+                    return false
+                end
+            end
+        end
+    end
+    true
+end
