@@ -14,3 +14,14 @@ def length_of_last_word(s)
     return 0 if !last_word
     last_word.length
 end
+
+# 5/16/19
+
+def length_of_last_word(s)
+    last = s.split(" ")[-1]
+    if last
+        last.length
+    else
+        0
+    end
+end
