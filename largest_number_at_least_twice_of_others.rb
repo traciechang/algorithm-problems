@@ -31,3 +31,24 @@ def dominant_index(nums)
     end
     nums.index(maximum)
 end
+
+# 5/17/19
+
+def dominant_index(nums)
+    largest_idx = nil
+    
+    nums.each_with_index do |n,idx|
+        if largest_idx.nil?
+            largest_idx = idx
+        elsif n > nums[largest_idx]
+            largest_idx = idx
+        end
+    end
+    
+    half = nums[largest_idx] / 2
+    
+    nums.each do |n|
+        return -1 if n > half unless n == nums[largest_idx]
+    end
+    largest_idx
+end
