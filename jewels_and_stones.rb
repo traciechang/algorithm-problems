@@ -20,3 +20,13 @@ def num_jewels_in_stones(j, s)
     
     total_jewels
 end
+
+# 5/20/19
+
+def num_jewels_in_stones(j, s)
+    output = 0
+    s.each_char do |char|
+        output += 1 if j.include?(char)
+    end
+    output
+end
