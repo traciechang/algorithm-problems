@@ -55,5 +55,5 @@ def find_words(words)
             output << word if same_row
         end
     end
-    # output
+    output
 end
