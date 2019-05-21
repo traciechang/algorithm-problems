@@ -41,3 +41,19 @@ def find_words(words)
 end
 
 # 5/21/19
+
+def find_words(words)
+    # output = []
+    # keyboard = [%w(q w e r t y u i o p), %w(a s d f g h j k l), %w(z x c v b n m)]
+    
+    keyboard.each do |row|
+        words.each do |word|
+            same_row = true
+            word.each_char do |char|
+                same_row = false if !row.include?(char.downcase)
+            end
+            output << word if same_row
+        end
+    end
+    # output
+end
