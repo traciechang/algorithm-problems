@@ -44,7 +44,7 @@ end
 
 def find_words(words)
     # output = []
-    # keyboard = [%w(q w e r t y u i o p), %w(a s d f g h j k l), %w(z x c v b n m)]
+    keyboard = [%w(q w e r t y u i o p), %w(a s d f g h j k l), %w(z x c v b n m)]
     
     keyboard.each do |row|
         words.each do |word|
