@@ -37,3 +37,20 @@ def is_isomorphic(s, t)
     return false if t[length_of_s+1] unless length_of_s.nil?
     true
 end
+
+# 5/23/19
+
+def is_isomorphic(s, t)
+    hash = {}
+    
+    s.each_char.with_index do |char, idx|
+        if hash[char]
+            return false if hash[char] != t[idx]
+        elsif hash.values.include?(t[idx])
+            return false
+        else
+            hash[char] = t[idx]
+        end
+    end
+    true
+end
