@@ -13,3 +13,21 @@ def intersection(nums1, nums2)
     
     nums1_uniq.select { |n| nums2_uniq.include?(n) }
 end
+
+# 6/10/19
+
+def intersect(nums1, nums2)
+    hash = {}
+    output = []
+    nums1.each do |num|
+        hash[num] = hash[num] ? hash[num] + 1 : 1
+    end
+    
+    nums2.each do |num|
+        if hash[num] && hash[num] != 0
+            output << num
+            hash[num] -=1
+        end
+    end
+    output
+end
