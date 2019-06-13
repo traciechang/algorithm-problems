@@ -26,3 +26,15 @@ def str_str(haystack, needle)
     end
     -1
 end
+
+# 6/13/19
+
+def str_str(haystack, needle)
+    return 0 if haystack == needle
+    needle_length = needle.length
+    
+    haystack.each_char.with_index do |char, idx|
+        return idx if haystack[idx...idx+needle_length] == needle
+    end
+    -1
+end
