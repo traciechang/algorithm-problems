@@ -48,3 +48,21 @@ def to_goat_latin(s)
         word + "a" * (idx+1)
     end.join(" ")
 end
+
+# 6/14/19
+
+def to_goat_latin(s)
+    vowels = %w(a e i o u)
+    arr = s.split(" ")
+    output = ""
+    
+    arr.each_with_index do |word, idx|
+        if vowels.include?(word[0].downcase)
+            output << word + "ma" + ("a" * (idx + 1)) + " "
+        else
+            output << word[1...word.length] + word[0] + "ma" + ("a" * (idx + 1)) + " "
+        end
+    end 
+    output = output[0...output.length - 1]
+    output
+end
