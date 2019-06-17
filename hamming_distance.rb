@@ -35,3 +35,23 @@ def hamming_distance(x, y)
 end
 
 # 6/17/19
+
+def hamming_distance(x, y)
+    x1 = x.to_s(2)
+    y1 = y.to_s(2)
+    max_length = x1.length > y1.length ? x1.length : y1.length
+    ham = 0
+    
+    until x1.length >= max_length
+        x1 = "0" + x1
+    end
+    
+    until y1.length >= max_length
+        y1 = "0" + y1
+    end
+    
+    x1.each_char.with_index do |char, idx|
+        ham += 1 if char != y1[idx]
+    end
+    ham
+end
