@@ -33,3 +33,5 @@ def hamming_distance(x, y)
     
     distance
 end
+
+# 6/17/19
