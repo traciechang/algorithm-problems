@@ -25,3 +25,27 @@ def flip_and_invert_image(a)
         end
     end
 end
+
+# 6/17/19
+
+def flip_and_invert_image(a)
+    new_a = []
+    even_newer_a = []
+    
+    a.each do |arr|
+        new_a << arr.reverse
+    end
+    
+    new_a.each do |arr|
+        temp = []
+        arr.each do |i|
+            if i == 1
+                temp << 0
+            else
+                temp << 1
+            end
+        end
+        even_newer_a << temp
+    end
+    even_newer_a
+end
