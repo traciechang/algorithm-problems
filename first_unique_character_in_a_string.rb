@@ -30,4 +30,27 @@ def first_uniq_char(s)
     -1
 end
 
+# 6/18/19
+
+def first_uniq_char(s)
+    hash = {}
+    uniq = ""
+    
+    s.each_char do |char|
+        hash[char] = hash[char] ? hash[char] + 1 : 1
+    end
+    
+    hash.each do |key, val|
+        if val == 1
+            uniq = key
+            break
+        end
+    end
+    
+    s.each_char.with_index do |char, idx|
+        return idx if char == uniq
+    end
+    -1
+end
+
 puts first_uniq_char("cc")
