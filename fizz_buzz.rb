@@ -41,3 +41,24 @@ def fizz_buzz(n)
     end
     output
 end
+
+# 6/18/19
+
+def fizz_buzz(n)
+    count = 1
+    output = []
+    
+    while count <= n
+        if count % 3 == 0 && count % 5 == 0
+            output << "FizzBuzz"
+        elsif count % 3 == 0
+            output << "Fizz"
+        elsif count % 5 == 0
+            output << "Buzz"
+        else
+            output << count.to_s
+        end
+        count += 1
+    end
+    output
+end
