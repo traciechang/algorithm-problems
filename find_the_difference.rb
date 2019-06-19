@@ -29,3 +29,26 @@ def find_the_difference(s, t)
     end
     difference
 end
+
+# 6/19/19
+
+def find_the_difference(s, t)
+    hash = {}
+    hash_t = {}
+    
+    s.each_char do |char|
+        hash[char] = hash[char] ? hash[char] + 1 : 1
+    end
+    
+    t.each_char do |char|
+        hash_t[char] = hash_t[char] ? hash_t[char] + 1 : 1
+    end
+    
+    hash_t.each do |key, val|
+        if hash[key] && hash[key] != val
+            return key
+        elsif hash[key].nil?
+            return key
+        end
+    end
+end
