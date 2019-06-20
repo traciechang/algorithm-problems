@@ -24,31 +24,32 @@
 
 require 'pry'
 
-def pivot_index(nums)
-    #     nums.each_with_index do |num, idx|
-    #         if idx == 0
-    #             return idx if nums[idx+1..nums.length-1].inject(:+) == 0
-    #         end
-            
-    #         if idx == nums.length-1
-    #             return idx if nums[0...idx].inject(:+) == 0
-    #         end
-            
-    #         return idx if nums[0...idx].inject(:+) == nums[idx+1..nums.length-1].inject(:+)
-    #     end
-    #     -1
+# def pivot_index(nums)
         
-    total = nums.inject(:+)
+#     total = nums.inject(:+)
     
-    nums.each_with_index do |num, idx|
-        if idx == 0 || idx == nums.length-1
-            return idx if total - num == 0
-        else
-            left_sum = nums[0...idx].inject(:+)
-            return idx if total - num - left_sum == left_sum
+#     nums.each_with_index do |num, idx|
+#         if idx == 0 || idx == nums.length-1
+#             return idx if total - num == 0
+#         else
+#             left_sum = nums[0...idx].inject(:+)
+#             return idx if total - num - left_sum == left_sum
+#         end
+#     end
+#     -1
+# end
+
+# 6/20/19
+
+def pivot_index(nums)
+    def pivot_index(nums)
+        nums.each_with_index do |n, idx|
+            return idx if idx == 0 && nums[idx+1...nums.length].inject(:+) == 0
+            return idx if nums[0...idx].inject(:+) == nums[idx+1...nums.length].inject(:+)
+            return idx if idx == nums.length - 1 && nums[0...idx].inject(:+) == 0
         end
+        -1
     end
-    -1
 end
 
 puts pivot_index([1,7,3,6,5,6])
