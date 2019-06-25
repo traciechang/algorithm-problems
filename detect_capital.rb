@@ -25,3 +25,5 @@ def detect_capital_use(word)
     end
     output
 end
+
+# 6/25/19
