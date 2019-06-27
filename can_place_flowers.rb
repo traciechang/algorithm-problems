@@ -37,3 +37,27 @@ def can_place_flowers(flowerbed, n)
     
     counter >= n
 end
+
+# 6/27/19
+
+def can_place_flowers(flowerbed, n)
+    return true if n == 0
+    planted = 0
+    
+    flowerbed.each_with_index do |plot, idx|
+        if plot == 0
+            if idx == 0 && flowerbed[idx + 1] == 0
+                planted += 1
+                flowerbed[idx] = 1
+            elsif idx == flowerbed.length - 1 && flowerbed[idx-1] == 0
+                planted += 1
+                flowerbed[idx] = 1
+            elsif flowerbed[idx-1] == 0 && flowerbed[idx+1] == 0
+                planted += 1
+                flowerbed[idx] = 1
+            end
+        end
+        return true if planted == n
+    end
+    false
+end
