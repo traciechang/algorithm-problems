@@ -31,3 +31,17 @@ def contains_duplicate(nums)
     end
     false
 end
+
+# 6/26/19
+
+def contains_duplicate(nums)
+    hash = {}
+    nums.each do |num|
+        if hash[num]
+            return true
+        else
+            hash[num] = true
+        end
+    end
+    false
+end
