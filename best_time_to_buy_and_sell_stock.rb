@@ -33,3 +33,17 @@ def max_profit(prices)
 end
 
 # 6/28/19
+
+def max_profit(prices)
+    min = nil
+    max_profit = 0
+    
+    prices.each do |price|
+        if min.nil? || price < min
+            min = price
+        elsif price - min > max_profit
+            max_profit = price - min
+        end
+    end
+    max_profit
+end
