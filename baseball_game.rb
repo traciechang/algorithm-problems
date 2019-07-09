@@ -56,3 +56,22 @@ def cal_points(ops)
 end
 
 # 7/9/19
+
+def cal_points(ops)
+    arr = []
+    
+    ops.each do |op|
+        case op
+        when "+"
+            arr << (arr[-1] + arr[-2])
+        when "D"
+            arr << (arr[-1] * 2)
+        when "C"
+            arr = arr[0...arr.length-1]
+        else
+            arr << op.to_i
+        end
+    end
+    
+    arr.inject(:+)
+end
