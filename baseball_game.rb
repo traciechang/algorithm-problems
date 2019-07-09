@@ -54,3 +54,5 @@ def cal_points(ops)
     end
     arr.inject(:+)
 end
+
+# 7/9/19
