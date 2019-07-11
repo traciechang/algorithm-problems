@@ -19,4 +19,26 @@ def pickingNumbers(a)
     max_length
 end
 
+# 7/11/19
+
+def pickingNumbers(a)
+    hash = {}
+    max = 0
+
+    a.each do |n|
+        hash[n] = hash[n] ? hash[n] + 1 : 1
+    end
+
+    hash.each do |key, val|
+        count = 0
+        n2 = key + 1
+        if hash[n2]
+            count += val
+            count += hash[n2]
+        end
+        max = count if count > max
+    end
+    max
+end
+
 puts pickingNumbers([4, 6, 5, 3, 3, 1])

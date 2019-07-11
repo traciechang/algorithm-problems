@@ -31,28 +31,53 @@
 
 require 'pry'
 
-def backspace_compare(s, t)
+# def backspace_compare(s, t)
     
-    def mark_for_deletion(s)
-        s.each_char.with_index do |char, idx|
-            if char == "#"
-                s[idx] = "*"
-                until idx < 0 || s[idx] != "*"
-                    idx -=1
-                end
-                s[idx] = "*" unless idx < 0
-            end
+#     def mark_for_deletion(s)
+#         s.each_char.with_index do |char, idx|
+#             if char == "#"
+#                 s[idx] = "*"
+#                 until idx < 0 || s[idx] != "*"
+#                     idx -=1
+#                 end
+#                 s[idx] = "*" unless idx < 0
+#             end
+#         end
+#     end
+    
+#     mark_for_deletion(s)
+#     mark_for_deletion(t)
+
+#     s.delete!("*")
+#     t.delete!("*")
+    
+#     s == t
+# end
+
+def backspace_compare(s, t)
+    s_str = ""
+    t_str = ""
+    
+    s.each_char do |char|
+        if char == "#"
+            s_str = s[0...s_str.length-1] unless s_str == ""
+        else
+            s_str << char
         end
     end
     
-    mark_for_deletion(s)
-    mark_for_deletion(t)
-
-    s.delete!("*")
-    t.delete!("*")
+    t.each_char do |char|
+        binding.pry
+        if char == "#"
+            t_str = t[0...t_str.length-1] unless t_str == ""
+        else
+            t_str << char
+        end
+    end
     
-    s == t
+    s_str == t_str
 end
 
-puts backspace_compare("ab##", "c#d#")
+# puts backspace_compare("ab##", "c#d#")
 # puts backspace_compare("c##vnvr", "c##vn#nvr")
+puts backspace_compare("nzp#o#g", "b#nzp#o#g")
