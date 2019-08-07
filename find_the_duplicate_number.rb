@@ -1,3 +1,5 @@
+# leetcode
+
 def find_duplicate(nums)
     hash = {}
     
