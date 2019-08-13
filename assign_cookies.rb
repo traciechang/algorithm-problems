@@ -37,3 +37,26 @@ def find_content_children(g, s)
     end
     output
 end
+
+# 8/13/19
+
+def find_content_children(g, s)
+    available_cookies = {}
+    max_content_kids = 0
+    
+    s.sort.each do |n|
+        available_cookies[n] = available_cookies[n] ? available_cookies[n] + 1 : 1
+    end
+    
+    g.sort.each do |n|
+        available_cookies.each do |key, val|
+            if key >= n && val != 0
+                max_content_kids += 1
+                available_cookies[key] -= 1
+                break
+            end
+        end
+    end
+    
+    max_content_kids
+end
