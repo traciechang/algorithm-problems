@@ -19,3 +19,15 @@ def array_pair_sum(nums)
     
     mins.inject(:+)
 end
+
+# 8/13/19
+
+def array_pair_sum(nums)
+    sum = 0
+    
+    nums.sort.each_with_index do |n, idx|
+        sum += n if idx % 2 == 0
+    end
+    
+    sum
+end

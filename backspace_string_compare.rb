@@ -81,3 +81,28 @@ end
 # puts backspace_compare("ab##", "c#d#")
 # puts backspace_compare("c##vnvr", "c##vn#nvr")
 puts backspace_compare("nzp#o#g", "b#nzp#o#g")
+
+# 8/19/19
+
+def backspace_compare(s, t)
+    s2 = ""
+    t2 = ""
+    
+    s.each_char do |char|
+        if char == "#"
+            s2 = s2[0...s2.length-1]
+        else
+            s2 << char
+        end
+    end
+    
+    t.each_char do |char|
+        if char == "#"
+            t2 = t2[0...t2.length-1]
+        else
+            t2 << char
+        end
+    end
+    
+    s2 == t2
+end
