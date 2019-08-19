@@ -75,3 +75,23 @@ def cal_points(ops)
     
     arr.inject(:+)
 end
+
+# 8/19/19
+
+def cal_points(ops)
+    points = []
+    
+    ops.each do |op|
+        if op == "+"
+            points << (points[-1] + points[-2]).to_i
+        elsif op == "D"
+            points << (points[-1]*2).to_i
+        elsif op == "C"
+            points.pop
+        else
+            points << op.to_i
+        end
+    end
+    
+    points.inject(:+)
+end
