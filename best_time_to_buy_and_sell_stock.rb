@@ -47,3 +47,20 @@ def max_profit(prices)
     end
     max_profit
 end
+
+# 8/20/19
+
+def max_profit(prices)
+    min = prices[0]
+    profit = 0
+    
+    prices.each do |price|
+        if price < min
+            min = price
+        else
+            temp_prof = price - min
+            profit = temp_prof if temp_prof > profit
+        end
+    end
+    profit
+end
