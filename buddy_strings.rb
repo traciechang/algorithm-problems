@@ -30,21 +30,37 @@
 # 0 <= B.length <= 20000
 # A and B consist only of lowercase letters.
 
+# def buddy_strings(a, b)
+#     mismatch_count = 0
+#     hash_a = {}
+#     hash_b = {}
+    
+#     a.each_char.with_index do |char, idx|
+#         mismatch_count += 1 if char != b[idx]
+#         hash_a[char] = hash_a[char] ? hash_a[char] + 1 : 1
+#         hash_b[b[idx]] = hash_b[b[idx]] ? hash_b[b[idx]] + 1 : 1
+#     end
+    
+#     hash_a.each do |key, val|
+#         return false if hash_b[key].nil? || hash_b[key] != val
+#         return true if mismatch_count == 00 && val >= 2 && hash_b[key] == val
+#     end
+#     return false if mismatch_count != 2
+#     true
+# end
+
+# 8/21/19
+
+require 'pry'
+
 def buddy_strings(a, b)
-    mismatch_count = 0
-    hash_a = {}
-    hash_b = {}
-    
     a.each_char.with_index do |char, idx|
-        mismatch_count += 1 if char != b[idx]
-        hash_a[char] = hash_a[char] ? hash_a[char] + 1 : 1
-        hash_b[b[idx]] = hash_b[b[idx]] ? hash_b[b[idx]] + 1 : 1
+        a[idx+1...a.length].each_char.with_index do |char2, idx2|
+            # binding.pry
+            return true if (a[0...idx] + char2 + a[idx+1...idx2+idx+1] + char + a[idx2+idx+2...a.length]) == b
+        end
     end
-    
-    hash_a.each do |key, val|
-        return false if hash_b[key].nil? || hash_b[key] != val
-        return true if mismatch_count == 00 && val >= 2 && hash_b[key] == val
-    end
-    return false if mismatch_count != 2
-    true
+    false
 end
+
+puts buddy_strings("", "aa")
