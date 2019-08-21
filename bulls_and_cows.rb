@@ -27,3 +27,27 @@ def get_hint(secret, guess)
     end
     "#{bulls}A#{cows}B"
 end
+
+# 8/21/19
+
+def get_hint(secret, guess)
+    a = 0
+    b = 0
+    hash = {}
+    
+    secret.each_char.with_index do |char, idx|
+        if guess[idx] == char
+            a += 1
+        else
+            hash[char] = hash[char] ? hash[char] + 1 : 1
+        end
+    end
+    
+    guess.each_char.with_index do |char, idx|
+        if secret[idx] != char && hash[char] && hash[char] != 0
+            b += 1
+            hash[char] -=1
+        end
+    end
+    "#{a}A#{b}B"
+end
